@@ -19,14 +19,15 @@ from typing import Dict, List
 # IU5 = IL5 * 2    → mith   2g             JN5 = JE5 * 4
 # (name_en, name_marathi, class5_qty, class68_qty, unit)
 FOOD_ITEMS: list[tuple] = [
-    ("Tandul (Rice)",   "तांदूळ",           100.0,   150.0,  "g"),
-    ("Masur Dal",       "मसूर डाळ",          20.0,    30.0,  "g"),
-    ("Harbhara",        "हरभरा / वाटाणा",    20.0,    30.0,  "g"),
-    ("Mohari",          "मोहरी",              0.3,     0.25,  "g"),
-    ("Haldi",           "हळद",                0.4,     0.4,   "g"),
-    ("Mirchi Powder",   "मिरची पावडर",        1.5,     2.5,   "g"),
-    ("Tel (Oil)",       "तेल",                5.0,     7.5,  "ml"),
-    ("Mith (Salt)",     "मीठ",                2.0,     4.0,   "g"),
+    ("Tandul (Rice)",        "तांदूळ",              100.0,  150.0,  "g"),
+    ("Masur Dal",            "मसूर डाळ",             20.0,   30.0,  "g"),
+    ("Matki / Chavli",       "मटकी / चवळी",          20.0,   30.0,  "g"),
+    ("Harbhara",             "हरभरा",                20.0,   30.0,  "g"),
+    ("Mohari",               "मोहरी",                 0.3,    0.25,  "g"),
+    ("Haldi",                "हळद",                   0.4,    0.4,   "g"),
+    ("Kanda Lasun Masala",   "कांदा लसून मसाला",      2.0,    5.0,   "g"),
+    ("Mith (Salt)",          "मीठ",                   2.0,    4.0,   "g"),
+    ("Tel (Oil)",            "सोया. तेल",              5.0,    7.5,  "ml"),
 ]
 
 # ── Expense rates ₹ per student-day (confirmed from Bill 5th and Bill 6 To 8 sheets)

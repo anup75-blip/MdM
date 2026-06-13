@@ -420,6 +420,7 @@ with st.sidebar:
 
     st.divider()
     st.page_link("pages/generate_bill.py", label="Bill Generator", icon="📋")
+    st.page_link("pages/mobile_bill.py",  label="📱 Mobile Bill", icon="📋")
     st.divider()
 
     if st.button("Logout", use_container_width=True):
