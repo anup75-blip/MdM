@@ -40,13 +40,158 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+/* ── Global ── */
+html, body, [class*="css"] { font-family: 'Segoe UI', sans-serif; }
+
+/* ── Metric cards ── */
 [data-testid="metric-container"] {
-    background: #f0f4f0;
-    border: 1px solid #d4e6d4;
-    border-radius: 8px;
-    padding: 12px 16px;
+    background: linear-gradient(135deg, #ffffff, #f1f8f1);
+    border: 1px solid #c8e6c9;
+    border-left: 4px solid #2E7D32;
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: 0 2px 8px rgba(46,125,50,0.08);
+    transition: transform 0.15s;
 }
-[data-testid="stMetricValue"] { font-size: 1.6rem; }
+[data-testid="metric-container"]:hover { transform: translateY(-2px); }
+[data-testid="stMetricValue"] { font-size: 1.7rem; font-weight: 700; color: #1B5E20; }
+[data-testid="stMetricLabel"] { font-size: 0.78rem; font-weight: 600; color: #555; letter-spacing: 0.03em; text-transform: uppercase; }
+[data-testid="stMetricDelta"] { font-size: 0.8rem; }
+
+/* ── Buttons ── */
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.55rem 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    box-shadow: 0 3px 10px rgba(27,94,32,0.3);
+    transition: all 0.2s;
+}
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, #1B5E20, #145214);
+    box-shadow: 0 5px 15px rgba(27,94,32,0.4);
+    transform: translateY(-1px);
+}
+.stButton > button:not([kind="primary"]) {
+    border-radius: 10px;
+    border: 1.5px solid #c8e6c9;
+    transition: all 0.2s;
+}
+.stButton > button:not([kind="primary"]):hover {
+    border-color: #2E7D32;
+    color: #1B5E20;
+}
+
+/* ── Download button ── */
+.stDownloadButton > button {
+    background: linear-gradient(135deg, #1565C0, #0D47A1) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 3px 10px rgba(21,101,192,0.3) !important;
+}
+
+/* ── Tabs ── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 6px;
+    background: #E8F5E9;
+    border-radius: 12px;
+    padding: 4px;
+}
+.stTabs [data-baseweb="tab"] {
+    border-radius: 9px;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+.stTabs [aria-selected="true"] {
+    background: #2E7D32 !important;
+    color: white !important;
+}
+
+/* ── Forms & inputs ── */
+.stTextInput input, .stNumberInput input, .stDateInput input {
+    border-radius: 9px !important;
+    border: 1.5px solid #c8e6c9 !important;
+    padding: 0.4rem 0.8rem !important;
+    font-size: 1rem !important;
+    transition: border-color 0.2s;
+}
+.stTextInput input:focus, .stNumberInput input:focus {
+    border-color: #2E7D32 !important;
+    box-shadow: 0 0 0 3px rgba(46,125,50,0.12) !important;
+}
+
+/* ── Sidebar ── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #1B5E20 0%, #2E7D32 100%) !important;
+}
+[data-testid="stSidebar"] * { color: #e8f5e9 !important; }
+[data-testid="stSidebar"] .stButton > button {
+    background: rgba(255,255,255,0.15) !important;
+    border: 1.5px solid rgba(255,255,255,0.3) !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+[data-testid="stSidebar"] .stButton > button:hover {
+    background: rgba(255,255,255,0.25) !important;
+}
+[data-testid="stSidebar"] [data-testid="metric-container"] {
+    background: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-left: 4px solid #A5D6A7 !important;
+}
+[data-testid="stSidebar"] [data-testid="stMetricValue"] { color: white !important; }
+[data-testid="stSidebar"] [data-testid="stMetricLabel"] { color: #A5D6A7 !important; }
+[data-testid="stSidebar"] .stSelectbox select,
+[data-testid="stSidebar"] .stSelectbox > div > div {
+    background: rgba(255,255,255,0.1) !important;
+    color: white !important;
+    border-radius: 8px !important;
+}
+[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.2) !important; }
+
+/* ── Login card ── */
+.login-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 8px 32px rgba(27,94,32,0.12);
+    border: 1px solid #e8f5e9;
+    max-width: 440px;
+    margin: 0 auto;
+}
+.login-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1B5E20;
+    margin-bottom: 0.2rem;
+}
+.login-subtitle {
+    text-align: center;
+    color: #66BB6A;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ── Page title ── */
+h1 { color: #1B5E20 !important; font-weight: 800 !important; }
+h2 { color: #2E7D32 !important; }
+h3 { color: #388E3C !important; }
+
+/* ── Alerts ── */
+.stSuccess { border-radius: 10px !important; }
+.stError   { border-radius: 10px !important; }
+.stWarning { border-radius: 10px !important; }
+.stInfo    { border-radius: 10px !important; }
+
+/* ── Dataframe ── */
+.stDataFrame { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 </style>
 """, unsafe_allow_html=True)
 
@@ -59,32 +204,37 @@ if not get_current_user():
     if handle_oauth_callback():
         st.rerun()
 
+    st.markdown("<br>", unsafe_allow_html=True)
     _, col, _ = st.columns([1, 2, 1])
     with col:
         logo = BASE_DIR / "assets" / "logo.png"
         if logo.exists():
-            st.image(str(logo), width=100)
-        st.title("MDM Dashboard")
-        st.caption("Maharashtra Mid-Day Meal Scheme | महाराष्ट्र शालेय पोषण आहार")
-        st.divider()
+            st.image(str(logo), width=80)
+
+        st.markdown("""
+        <div class='login-title'>🍱 MDM Dashboard</div>
+        <div class='login-subtitle'>Maharashtra Mid-Day Meal Scheme<br>महाराष्ट्र शालेय पोषण आहार</div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("---")
 
         # ── Google login (primary) ─────────────────────────────────────────────
         try:
             st.link_button(
-                "Continue with Google",
+                "🔵  Continue with Google",
                 google_login_url(),
                 use_container_width=True,
             )
         except Exception:
-            st.warning("Google login not configured yet — use email/password below.")
+            pass
 
         st.markdown(
-            "<div style='text-align:center;color:#aaa;margin:10px 0'>── or ──</div>",
+            "<div style='text-align:center;color:#aaa;margin:12px 0;font-size:0.85rem'>— or use phone number —</div>",
             unsafe_allow_html=True,
         )
 
         # ── Login / Sign-Up tabs ───────────────────────────────────────────────
-        tab_login, tab_signup = st.tabs(["Login", "Sign Up"])
+        tab_login, tab_signup = st.tabs(["🔐  Login", "✨  Sign Up"])
 
         with tab_login:
             with st.form("login_form"):
@@ -278,8 +428,12 @@ with st.sidebar:
 
 
 # ── Header ───────────────────────────────────────────────────────────────────
-st.title(f"Mid-Day Meal — {school_name}")
-st.subheader(month_label)
+st.markdown(f"""
+<div style='background:linear-gradient(135deg,#1B5E20,#2E7D32);border-radius:16px;padding:1.2rem 1.8rem;margin-bottom:1rem;color:white;'>
+    <div style='font-size:1.5rem;font-weight:800;'>🍱 {school_name}</div>
+    <div style='font-size:0.95rem;opacity:0.85;margin-top:4px;'>Mid-Day Meal Dashboard &nbsp;·&nbsp; {month_label}</div>
+</div>
+""", unsafe_allow_html=True)
 
 # ── Load data from Supabase ──────────────────────────────────────────────────
 hm = HolidayManager(year=sel_year)

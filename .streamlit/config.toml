@@ -1,7 +1,9 @@
 [theme]
-primaryColor          = "#2E7D32"
-backgroundColor       = "#FFFFFF"
-secondaryBackgroundColor = "#F0F2F6"
+primaryColor          = "#1B5E20"
+backgroundColor       = "#F8FAF8"
+secondaryBackgroundColor = "#E8F5E9"
+textColor             = "#1C2B1C"
+font                  = "sans serif"
 
 [client]
 # Hide raw Python tracebacks from users in production
