@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse \"c:\\\\Users\\\\HP\\\\MidDayMealProject\")",
+      "Bash(Select-Object FullName, Length)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\HP\\\\MidDayMealProject\" -Recurse -File | Where-Object { $_.Extension -ne \"\" } | Select-Object FullName | Format-Table -AutoSize -HideTableHeaders)",
+      "Bash(Get-Content \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-HP-MidDayMealProject\\\\fd088bba-4d74-4839-98b2-1d36bba728f5\\\\tasks\\\\bxuw0vn9a.output\" -Wait)",
+      "Bash(Select-String -Pattern \"Successfully installed|error|ERROR\" --line-buffered)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\HP\\\\MidDayMealProject\" -Recurse -Depth 2)",
+      "Bash(Select-Object FullName, Length, LastWriteTime)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\HP\\\\MidDayMealProject\" -Recurse -Depth 3 | Select-Object FullName, @{N='Size\\(KB\\)';E={[math]::Round\\($_.Length/1KB,1\\)}}, LastWriteTime | Format-Table -AutoSize)",
+      "Bash(venv\\\\Scripts\\\\python.exe -c \"from scripts.bill_viewer import read_bill_68, read_bill_5, FOOD_ITEMS, BILL_FOOD_ITEMS; print\\('bill_viewer OK'\\); print\\('FOOD_ITEMS:', len\\(FOOD_ITEMS\\), 'rows'\\); print\\('BILL_FOOD_ITEMS:', len\\(BILL_FOOD_ITEMS\\), 'rows'\\)\")",
+      "PowerShell(Start-Sleep -Seconds 3; try { $r = Invoke-WebRequest -Uri \"http://localhost:8501\" -TimeoutSec 5 -UseBasicParsing; Write-Host \"HTTP $\\($r.StatusCode\\) - Dashboard is running\" } catch { Write-Host \"Not ready yet: $_\" })"
+    ]
+  }
+}

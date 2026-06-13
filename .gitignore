@@ -1,0 +1,27 @@
+# Secrets — NEVER commit
+.streamlit/secrets.toml
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# Data files — stay local, live in Supabase
+data/attendance/
+data/daily_entries/
+data/monthly_reports/
+mdms_local.db
+
+# Generated output — recreated on demand
+logs/
+output/
+
+# Excel data files — but ALLOW templates
+*.xlsx
+!templates/*.xlsx
+
+# OS
+.DS_Store
+Thumbs.db

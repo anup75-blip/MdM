@@ -1,0 +1,16 @@
+[theme]
+primaryColor          = "#2E7D32"
+backgroundColor       = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+
+[client]
+# Hide raw Python tracebacks from users in production
+showErrorDetails = false
+
+[server]
+port     = 8501
+headless = true
+
+[runner]
+# Prevent accidental data leakage between reruns
+enforceSerializableSessionState = false
